@@ -186,9 +186,5 @@ def manage_chat():
                 time.sleep(10)
             st.success(f"'{pinecone_index}' Index Deleted Successfully!")
 
-man_pass = "chatadmin"
-pass_manage = st.sidebar.text_input("Enter Password: ", type="password")
-if pass_manage == man_pass:
-    manage_chat()
-else:
-    st.sidebar.warning("Incorrect Password!")
+manage_chat()
+
