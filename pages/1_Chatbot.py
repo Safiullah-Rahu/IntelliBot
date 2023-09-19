@@ -208,7 +208,7 @@ def chat(pinecone_index):
                     <div style="text-align: left;">
                         <h3>   {cb.total_tokens}</h3>
                     </div> """, unsafe_allow_html=True)
-            st.sidebar.write("Information Processing: ", "---")
+            st.sidebar.write("Information Processing (Web+ChatGPT+Data): ")
             st.sidebar.header(":red[Web Results:] ")
             st.sidebar.write(web_res)
             st.sidebar.write("---")
