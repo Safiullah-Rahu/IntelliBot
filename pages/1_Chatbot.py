@@ -197,12 +197,14 @@ def chat(pinecone_index):
             #st_callback = StreamlitCallbackHandler(st.container())
             #if meth_sw:
             agent, contex, web_res, result_string, output = agent_meth(prompt, pt)
-            with st.spinner("Thinking..."):
+            #with st.spinner("Thinking..."):
+            with st.status("Thinking...", expanded=True) as status:
                 with get_openai_callback() as cb:
                     response = agent.predict(human_input=prompt)#, callbacks=[st_callback])
                     st.session_state.chat_history.append((prompt, response))
                     message_placeholder.markdown(response)
                     st.session_state.messages.append({"role": "assistant", "content": response})
+                    status.update(label="Finished!", state="complete", expanded=False)
             st.sidebar.header("Total Token Usage:")
             st.sidebar.write(f"""
                     <div style="text-align: left;">
